@@ -1,0 +1,11 @@
+flask
+openai-whisper
+torch
+librosa
+numpy
+soundfile
+webrtcvad
+pydub
+scipy
+noisereduce
+redis
