@@ -38,16 +38,10 @@ def transcribe():
 
                 # Транскрибирование аудио
                 transcription_path = process_and_transcribe(temp_audio.name, output_dir)
-                logger.info(f"Транскрипция сохранена по пути: {transcription_path}")
 
                 # Чтение содержимого транскрипции
                 with open(transcription_path, 'r', encoding='utf-8') as f:
                     transcription_text = f.read()
-
-                # Удаление временного аудио файла
-                os.remove(temp_audio.name)
-                logger.info(f"Временный файл удален: {temp_audio.name}")
-
                 return jsonify({'transcription': transcription_text, 'output_dir': output_dir}), 200
         except Exception as e:
             logger.error(f"Ошибка при транскрипции: {e}", exc_info=True)
